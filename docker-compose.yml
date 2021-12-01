@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb_open_emp_inv
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root # root username
+      - MONGO_INITDB_ROOT_PASSWORD=secret # change password for root
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - mongodb_network
+    ports:
+      - 27017:27017
+
+volumes:
+  mongodb-data:
+    name: mongodb-data
+
+networks:
+  mongodb_network:
+    name: mongodb_network
+
