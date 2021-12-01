@@ -1,6 +1,7 @@
 import OrganisationModel from '../Databases/Models/Organisation.model'
+import UserModel from '../Databases/Models/User.model'
 import _repositoryOrg from '../Databases/Repository/Organisation.repository'
-// import 
+import _repositoryUser from '../Databases/Repository/User.repository'
 exports.get = (request, response) => {
   try {
   } catch (error) {}
@@ -16,15 +17,24 @@ exports.create = async(request, response) => {
   try {
    
     createdOrg=await _repositoryOrg.createOrganisation(organisation)
-    response.status(201).send(created)
+ 
   } catch (error) {
-    console.log(error)
+    
     return response.status(500)
   }
   try {
-    createUser=await _re
+   
+    let user={
+      organisation_id:createdOrg._id,
+      first_name:request.body.first_name,
+      last_name:request.body.last_name,
+      email:request.body.email
+    }
+    createUser=await _repositoryUser.createUser(user,request.body.password,"ADM")
+    return response.status(201).send(createUser)
   } catch (error) {
-    
+   
+    return response.status(500)
   }
 
 };

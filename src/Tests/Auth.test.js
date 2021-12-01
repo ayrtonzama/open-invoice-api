@@ -7,7 +7,7 @@ describe("Login endpoint", () => {
   it("POST /auth/login should login user", async () => {
     const res = await requestWithSupertest
       .post(`/api/v1/auth/login`)
-      .send({ email: "", password: "" });
+      .send({ email: "ayrton@assemble.co.za", password: "Password123" });
 
     expect(res.statusCode).toEqual(200);
  
