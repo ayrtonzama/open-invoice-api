@@ -10,7 +10,12 @@ describe("Login endpoint", () => {
       .send({ email: "ayrton@assemble.co.za", password: "Password123" });
 
     expect(res.statusCode).toEqual(200);
- 
+    expect(200, {
+      data: {
+        role: "ADM",
+      },
+    });
+
     // expect(res.body)
   });
 

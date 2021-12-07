@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
+import generator from 'generate-password';
 import regeneratorRuntime from "regenerator-runtime";
 exports.passwordHash = async (password) => {
   try {
@@ -7,6 +8,7 @@ exports.passwordHash = async (password) => {
     const hash = bcrypt.hashSync(password, salt);
     return hash;
   } catch (error) {
+    console.log(error)
     throw error;
   }
 };
@@ -31,4 +33,21 @@ exports.signJwt=async(data,expires='1h')=>{
     throw err;
   }
   
+}
+
+exports.generatePassword=async()=>{
+  return generator.generate({
+    length: 10,
+    numbers: true
+  });
+}
+
+
+exports.decodeJwt=(jwt_income)=>{
+  return jwt.decode(jwt_income)
+}
+
+exports.verifyJwt=(jwt_incoming)=>{
+  console.log("here")
+  return jwt.verify(jwt_incoming,process.env.JWT_PASSWORD)
 }

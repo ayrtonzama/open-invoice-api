@@ -21,6 +21,7 @@
     "express-jwt": "^6.1.0",
     "express-list-endpoints": "^6.0.0",
     "express-session": "^1.17.2",
+    "generate-password": "^1.7.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.2.0",
     "mongoose": "^6.0.13",

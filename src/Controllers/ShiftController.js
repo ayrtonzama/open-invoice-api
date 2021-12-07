@@ -1,6 +1,6 @@
 
 
-exports.create=(request,response)=>{
+exports.create=async(request,response,next)=>{
     try {
         
     } catch (error) {
@@ -9,7 +9,7 @@ exports.create=(request,response)=>{
 }
 
 
-exports.get=(request,response)=>{
+exports.get=async(request,response,next)=>{
     try {
         
     } catch (error) {
@@ -17,7 +17,7 @@ exports.get=(request,response)=>{
     }
 }
 
-exports.gets=(request,response)=>{
+exports.gets=async(request,response,next)=>{
     try {
         
     } catch (error) {
@@ -25,7 +25,7 @@ exports.gets=(request,response)=>{
     }
 }
 
-exports.update=(request,response)=>{
+exports.update=async(request,response,next)=>{
     try {
         
     } catch (error) {
@@ -33,7 +33,7 @@ exports.update=(request,response)=>{
     }
 }
 
-exports.remove=(request,response)=>{
+exports.remove=async(request,response,next)=>{
     try {
         
     } catch (error) {

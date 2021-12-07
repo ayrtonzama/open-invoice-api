@@ -1,5 +1,6 @@
 exports.errorHandler = (request, response, next) => {
-  let status = request.info;
+ 
+  let status = request.data.code;
   if (status >= 200 && status < 400) {
     return next();
   }

@@ -3,7 +3,7 @@ const jwt = require('express-jwt');
 const getTokenFromHeaders = (req) => {
   const { headers: { authorization } } = req;
 
-  if(authorization && authorization.split(' ')[0] === 'Token') {
+  if(authorization && authorization.split(' ')[0] === 'Bearer') {
     return authorization.split(' ')[1];
   }
   return null;
@@ -11,13 +11,13 @@ const getTokenFromHeaders = (req) => {
 
 const auth = {
   required: jwt({
-    secret: 'secret',
+    secret: 'jwt_password',
     userProperty: 'payload',
     getToken: getTokenFromHeaders,
     algorithms:['HS256']
   }),
   optional: jwt({
-    secret: 'secret',
+    secret: 'jwt_password',
     userProperty: 'payload',
     getToken: getTokenFromHeaders,
     credentialsRequired: false,
